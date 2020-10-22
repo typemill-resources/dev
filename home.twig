@@ -1,0 +1,33 @@
+		<!-- FEEL FREE TO CREATE A LANDING-PAGE HERE, FOR EXAMPLE : -->
+<article>
+
+	<header>
+		<h1>{{ title }}</h1>
+	</header>
+		
+	<div class="content">{{ content }}</div>
+
+</article>
+
+<!-- LIST PAGES FROM ANY FOLDER, MUST CONTAIN POST IN THIS CASE : -->
+
+{% if settings.themes.dev.listpages %}
+
+	{% set pagelist = getPageList(navigation, settings.themes.dev.listpages, base_url) %}
+
+	<ol class="postlist" reversed>
+
+		{% for element in pagelist.folderContent %}
+
+			{% set post = getPageMeta(settings, element) %}
+			{% set date = element.order[0:4] ~ '-' ~ element.order[4:2] ~ '-' ~ element.order[6:2] %}
+
+			<li>
+				<a href="{{ element.urlAbs }}">{{ post.meta.title }}</a> <time datetime="{{date}}">({{ date | date("d.m.Y") }})</time>
+			</li>
+
+		{% endfor %}
+
+	</ol>
+
+{% endif %}

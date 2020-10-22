@@ -1,0 +1,282 @@
+/*   Y O U R   C S S   S T Y L E S
+**
+** Style all markdown content elements properly
+** Use the markdown test file to check it: https://github.com/typemill/typemill/blob/master/content/00-Welcome/03-Markdown-Test.md
+** You can activate and use the Tachyons CSS library: https://typemill.net/theme-developers/helper-functions#activate-tachyons
+**
+*/
+
+
+/************************************
+*  		STANDARD-ELEMENTS  			*
+************************************/
+html{}
+body{}
+header{}
+footer{}
+nav{}
+main{}
+aside{}
+article{}
+a, a:link, a:visited{}
+a:hover, a:focus, a:active{}
+abbr{}
+blockquote{}
+code{}
+pre{}
+dl{}
+dt{}
+dd{}
+figure{}
+figcaption{}
+img{}
+hr{}
+ol{}
+ul{}
+li{}
+sup{}
+table{}
+thead{}
+tbody{}
+tr{}
+tr:nth-child(odd){ }
+tr:nth-child(even){ }
+td{}
+th{}
+
+
+/************************************
+*  		STANDARD SUGGESTIONS 		*
+************************************/
+
+/* Make links and buttons smooth */
+a, a:link, a:visited, a:focus, a:hover, a:active, button{
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
+
+/* Make code look good */
+pre{
+	display: block;	
+	white-space: pre;
+	max-width: 100%;
+	overflow-x: auto;
+}
+code{
+	display: inline-block;
+	word-break: break-all;
+}
+
+/* Fix background for hightlight plugin */
+code.hljs{ background: transparent; }
+
+/* Make table look good */
+table{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+/* For definition list */
+dt::after{
+	content: ":";
+}
+
+/* Make images and image captions look good */
+img, figure,figure img{
+	max-width: 100%;	
+}
+figure{
+	display: table;
+	margin: 2em auto;
+	padding: 0;
+}
+figure.left{
+	width: auto;
+	float: left;
+	margin: 0 2em 2em 0;
+}
+figure.right{
+	width: auto;
+	float: right;
+	margin: 0 0 2em 2em;
+}
+figure img{
+	display: block;
+	margin: auto;
+}
+figcaption{
+	display: table-caption;
+	caption-side: bottom;
+}
+.logo-image{
+	max-width: 250px;
+	max-height: 80px;
+}
+
+
+/************************
+* 		NOTICES 		*
+************************/
+
+.notice1 {
+    margin: 1em 0;
+    padding: 10px 1em;
+	background-color: #fafafa;
+	border-left: 10px solid #000;
+}
+.notice2 {
+    margin: 1em 0;
+    padding: 10px 1em;
+	background-color: #eee;
+	border-left: 10px solid #999;
+}
+.notice3,
+.notice4,
+.notice5,
+.notice6 {
+    margin: 1em 0;
+    padding: 10px 1em;
+	background-color: #444;
+	border-left: 10px solid #ccc;
+	color: #fff;
+}
+
+/************************
+* 	ANCHOR LINKS 		*
+************************/
+
+a.tm-heading-anchor {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: -1em;
+    width: 1em;
+    opacity: 0;
+}
+a.tm-heading-anchor:hover,a.tm-heading-anchor:focus {
+    opacity: 1;
+    text-decoration: none;
+}
+h2:focus > .tm-heading-anchor, 
+h2:hover > .tm-heading-anchor, 
+h3:focus > .tm-heading-anchor, 
+h3:hover > .tm-heading-anchor, 
+h4:focus > .tm-heading-anchor, 
+h4:hover > .tm-heading-anchor,
+h5:focus > .tm-heading-anchor, 
+h5:hover > .tm-heading-anchor,
+h6:focus > .tm-heading-anchor, 
+h6:hover > .tm-heading-anchor{
+	opacity: .75;
+}
+
+/************************
+*  DOWNLOAD LINK 		*
+************************/
+
+a.tm-download
+{
+	line-height: 35px;
+	margin-left: 40px;
+}
+a.tm-download::before{
+	content: '\2193';
+	position: absolute;
+	margin-left: -40px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	font-family: Calibri, "Segoe UI", Roboto, Courier, Helvetica, -apple-system, BlinkMacSystemFont, sans-serif, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 1.3em;
+	font-weight: 900;	
+	border: 2px solid #000;
+	border-radius: 50%;
+	text-align: center;
+	text-decoration: none;
+}
+a.tm-download:hover::before{
+	text-decoration: none;
+	color: #fff;
+	background: #000;
+}
+
+/************************
+* 		YOUTUBE 		*
+************************/
+
+.video-container{
+	position: relative;
+	text-align: center;
+}
+img.youtube{
+	position: relative;
+	max-width: 560px;
+}
+button.play-video { 
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -50px;
+	margin-left: -50px;
+	height: 100px;
+	width: 100px;
+	background: #e0474c;
+	color: #FFFFFF;
+	border-radius: 50%;
+	border: 0px;
+	padding: 0;
+	text-align: center;
+}
+button.play-video:hover {
+	background: #cc4146;
+	cursor: pointer;
+}
+button.play-video::after {
+	position: absolute;
+	top: 50%;
+	margin: -20px 0 0 -15px;
+	height: 0;
+	width: 0;
+	border-style: solid;
+	border-width: 20px 0 20px 40px;
+	border-color: transparent transparent transparent rgba(255, 255, 255, 0.75);
+	content: ' ';
+}
+
+
+
+/************************************
+* 			UTILITIES/HELPERS 		*
+************************************/
+
+/* Keeps Footer at the bottom */
+.body-footer-bottom { /* add this class to the body-tag */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.footer-bottom { /* add this class to the footer-tag */
+  margin-top: auto;
+}
+/* Nice set of system fonts, add this to the body-tag */
+.sans-serif { 
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; 
+}
+/* optimize text, add this to the body-tag */
+.optimize-text{
+    /* Adjust font size */
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    /* Font varient */
+    font-variant-ligatures: none;
+    -webkit-font-variant-ligatures: none;
+    /* Smoothing */
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+	text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+}

@@ -1,0 +1,23 @@
+name: Dev Theme
+version: 1.1.0
+description: Dev is a starting point for your own theme with a full html- and twig-skeleton, but without styles. 
+author: Your Name
+homepage: https://yourhomepage
+licence: MIT
+
+settings:
+  myfield: My Default Value
+
+forms:
+  fields:
+
+    listpages:
+      type: text
+      label: List Entries from Folder
+      placeholder: /blog
+      description: Add a path to a folder from which you want to list entries on startpage    
+
+    myfield:
+      type: text
+      label: Label for my field
+      placeholder: My placeholder

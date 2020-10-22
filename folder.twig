@@ -1,0 +1,62 @@
+<article>
+
+	{% if home %}
+	
+		<!-- YOU WANT TO SAY HELLO ? -->
+	
+	{% else %}
+
+		{% include 'partials/breadcrumb.twig' %}
+
+	{% endif %}
+
+		<h1>{{ title }}</h1>
+		
+		{{ content }}
+
+</article>
+
+<!-- YOU WANT TO LIST SUB-PAGES ? -->
+
+<section>
+
+	{% if item.contains == 'pages' %}
+
+		<ul>
+			{% for element in item.folderContent %}
+	
+				{% set page = getPageMeta(settings, element) %}
+
+				<li>
+					<a href="{{ element.urlAbs }}">
+						<h2>{{ page.meta.title }}</h2>
+						<p>{{ page.meta.description }}</p>
+					</a>
+				</li>
+
+			{% endfor %}
+
+		</ul>
+
+	{% elseif item.contains == 'posts' %}
+
+		<ul>
+
+			{% for element in item.folderContent %}
+
+				{% set post = getPageMeta(settings, element) %}
+				{% set date = element.order[0:4] ~ '-' ~ element.order[4:2] ~ '-' ~ element.order[6:2] %}
+
+				<li>
+					<a href="{{ element.urlAbs }}"><h2>{{ post.meta.title }}</h2></a>
+					<small><time datetime="{{date}}">{{ date | date("d.m.Y") }}</time> | {{ post.meta.author }}</small>
+					<p>{{ post.meta.description }}</p>
+				</li>
+
+			{% endfor %}
+			
+		</ul>
+
+	{% endif %}	
+
+</section>
