@@ -8,31 +8,11 @@
 		<meta name="description" content="{{ metatabs.meta.description }}" />
 		<meta name="author" content="{{ metatabs.meta.author }}" />
 		<meta name="generator" content="TYPEMILL" />
-		<meta name="msapplication-TileColor" content="#F9F8F6" />
-		
-		{% if favicon %}
-			<meta name="msapplication-TileColor" content="#F9F8F6" />
-			<meta name="msapplication-TileImage" content="{{ base_url }}/media/files/favicon-144.png" />
-			<link rel="icon" type="image/png" href="{{ base_url }}/media/files/favicon-16.png" sizes="16x16" />
-			<link rel="icon" type="image/png" href="{{ base_url }}/media/files/favicon-32.png" sizes="32x32" />
-			<link rel="apple-touch-icon" sizes="72x72" href="{{ base_url }}/media/files/favicon-72.png" />
-			<link rel="apple-touch-icon" sizes="114x114" href="{{ base_url }}/media/files/favicon-114.png" />
-			<link rel="apple-touch-icon" sizes="144x144" href="{{ base_url }}/media/files/favicon-144.png" />
-			<link rel="apple-touch-icon" sizes="180x180" href="{{ base_url }}/media/files/favicon-180.png" />
-		{% endif %}
-		
 		<link rel="canonical" href="{{ item.urlAbs }}" />
-		
-		<meta property="og:site_name" content="{{ settings.title }}">
-		<meta property="og:title" content="{{ title }}">
-		<meta property="og:description" content="{{ metatabs.meta.description }}">
-		<meta property="og:type" content="article">
-		<meta property="og:url" content="{{ item.urlAbs }}">
-		{% if image.img_url %}
-			<meta property="og:image" content="{{ image.img_url }}">
-			<meta name="twitter:image:alt" content="{{ image.img_alt }}">
-		{% endif %}
-		<meta name="twitter:card" content="summary_large_image">
+
+		<!-- Render all other meta-tags from the system and from plugins -->
+
+		{{ assets.renderMeta() }}
 
 		{% block stylesheets %}
 
@@ -43,6 +23,8 @@
 			-->
 
 			<link rel="stylesheet" href="{{ base_url }}/themes/dev/css/style.css" />
+
+			<!-- Render all other stylesheets from the system and from plugins -->
 			
 			{{ assets.renderCSS() }}
 			
@@ -88,6 +70,23 @@
 
 		</section>
 
+		<!-- You should add a widgetized area somewhere for search-plugin and other plugins -->
+		<aside>
+
+			{% if widgets %}
+				<div class="widgetcontainer">
+					{% for index,widget in widgets %}
+					<div id="{{ index }}">
+						{{ widget }}
+					</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+
+		</aside>
+
+
+
 		{% block content %}{% endblock %}
 			
 		<footer>
@@ -102,6 +101,7 @@
 				
 				<script src="{{ base_url }}/system/author/js/typemillutils.js"></script>
 				<script>typemillUtilities.start();</script>
+			
 			-->
 
 			<script src="{{ base_url }}/themes/dev/js/script.js"></script>
